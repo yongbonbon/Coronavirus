@@ -4,7 +4,7 @@
 
 本系统的技术环境为： JDK1.8 SpringMvc SpringSecurity SpringBoot Mysql Mybatis Thymeleaf  echarts
 
-如果有同学需要毕业设计的话，可以借鉴
+如果有同学需要毕业设计的话，可以联系本人邮箱   youngbonbon@foxmail.com
 
 
 
