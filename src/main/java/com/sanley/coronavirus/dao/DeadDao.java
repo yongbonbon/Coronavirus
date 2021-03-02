@@ -1,6 +1,4 @@
-package com.sanley.coronavirus.dao;/*
-Created by shkstart on 2020/2/23.
-*/
+package com.sanley.coronavirus.dao;
 
 import com.sanley.coronavirus.entity.Base;
 import com.sanley.coronavirus.entity.Dead;
@@ -35,4 +33,15 @@ public interface DeadDao {
     @Select("select sum(1) from dead")
     public int number();
 
+
+    @Select("SELECT baseId,deadTime " +
+            " FROM dead WHERE baseId in(select id from base where name like #{name})")
+    @Results({
+            @Result(id = true, property = "baseId", column = "baseId"),
+            @Result(property = "deadTime", column = "deadTime"),
+            @Result(property = "patient", column = "patient", javaType = Patient.class,one = @One(select = "com.sanley.coronavirus.dao.PatientDao.findById")),
+            @Result(property = "base", column = "baseId", javaType = Base.class, one = @One(select = "com.sanley.coronavirus.dao.BaseDao.findById"))
+    })
+    //根据姓名查找死者
+    public List<Touch> findByName(String name);
 }
