@@ -57,5 +57,10 @@ public class CureServiceImp implements CureService {
         return dao.beforeDay(date);
     }
 
+    @Override
+    public List<Cure> findByName(String name) {
+        return dao.findByName(name);
+    }
+
 
 }

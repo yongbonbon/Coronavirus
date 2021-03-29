@@ -47,14 +47,15 @@ public interface CureDao {
     @Select("select sum(1) from cure where dischargeDate <#{date}")
     public int beforeDay(Date date);
 
-    @Select("SELECT baseId,deadTime " +
-            " FROM dead WHERE baseId in(select id from base where name like #{name})")
+    @Select("select baseId,dischargeDate, current from cure WHERE baseId in(select id from base where name like #{name})")
     @Results({
             @Result(id = true, property = "baseId", column = "baseId"),
-            @Result(property = "deadTime", column = "deadTime"),
-            @Result(property = "patient", column = "patient", javaType = Patient.class,one = @One(select = "com.sanley.coronavirus.dao.PatientDao.findById")),
-            @Result(property = "base", column = "baseId", javaType = Base.class, one = @One(select = "com.sanley.coronavirus.dao.BaseDao.findById"))
+            @Result(property = "patient",column = "baseId",javaType = Patient.class,many = @Many(select = "com.sanley.coronavirus.dao.PatientDao.findById")),
+            @Result(property = "dischargeDate", column = "dischargeDate"),
+            @Result(property = "current", column = "current"),
+            @Result(property = "base",column = "baseId",javaType = Base.class,one = @One(select = "com.sanley.coronavirus.dao.BaseDao.findById"))
+
     })
-    //根据姓名查找痊愈者
-    public List<Touch> findByName(String name);
+    public List<Cure> findByName(String name);
+
 }

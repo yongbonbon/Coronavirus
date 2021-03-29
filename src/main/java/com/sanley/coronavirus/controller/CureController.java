@@ -47,5 +47,12 @@ public class CureController {
         return "redirect:/cure/info/"+baseId;
     }
 
-
+    @RequestMapping(value = "cure/listByCureName")
+    public String listByCureName(Model model, @RequestParam(name = "name", required = true) String name) {
+        List<Cure> cures = service.findByName(name);
+        System.out.println(cures);
+        PageInfo<Cure> pageInfo = new PageInfo<>(cures);
+        model.addAttribute("pageInfo", pageInfo);
+        return "list";
+    }
 }

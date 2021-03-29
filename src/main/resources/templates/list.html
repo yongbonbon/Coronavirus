@@ -108,13 +108,26 @@
 
                     <!-- 数据表格 -->
                     <div class="table-box">
-
-
-                        <div class="box-tools pull-right">
+                        <!--工具栏-->
+                        <div class="pull-left">
+                            <div class="form-group form-inline">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default" onclick="location.href='/cure/list'" title="刷新">
+                                        <i class="fa fa-refresh"></i> 刷新
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-tools pull-right" style="margin-bottom: 20px">
                             <div class="has-feedback">
-                                <input type="text" class="form-control input-sm"
-                                       placeholder="搜索"> <span
-                                    class="glyphicon glyphicon-search form-control-feedback"></span>
+                                <form th:action="@{/cure/listByCureName}" method="get">
+                                    <div style="display: flex;justify-content: center">
+                                        <input type="text" name="name" class="form-control input-sm"
+                                               style="margin-right: 20px"
+                                               placeholder="请输入姓名">
+                                        <input type="submit" >
+                                    </div>
+                                </form>
                             </div>
                         </div>
                         <!--工具栏/-->
@@ -129,7 +142,6 @@
                                 <th class="text-center">性别</th>
                                 <th class="text-center">住址</th>
                                 <th class="text-center">出院日期</th>
-                               <!-- <th class="sorting">现状</th>-->
                                 <th class="text-center">现状</th>
                             </tr>
                             </thead>
