@@ -2,9 +2,8 @@ package com.sanley.coronavirus.controller;/*
 Created by shkstart on 2020/2/23.
 */
 
+import com.github.pagehelper.Page;
 import com.github.pagehelper.PageInfo;
-import com.sanley.coronavirus.dao.DeadDao;
-import com.sanley.coronavirus.entity.Cure;
 import com.sanley.coronavirus.entity.Dead;
 import com.sanley.coronavirus.entity.User;
 import com.sanley.coronavirus.service.DeadService;
@@ -26,8 +25,6 @@ public class DeadController {
         PageInfo<User> pageInfo=new PageInfo(deads);
         model.addAttribute("pageInfo",pageInfo);
         return "deadList";
-
-
     }
 
     //添查看死亡详情
@@ -38,6 +35,19 @@ public class DeadController {
         return "deadInfo";
     }
 
-
+    /**
+     * 查询死者
+     * @param model
+     * @param name
+     * @return
+     */
+    @RequestMapping(value = "/dead/listByDeadName")
+    public String listByDeadName(Model model, @RequestParam(name = "name", required = true) String name) {
+        List<Dead> deads = service.findByName(name);
+        System.out.println(deads);
+        PageInfo<Dead> pageInfo = new PageInfo<>(deads);
+        model.addAttribute("pageInfo", pageInfo);
+        return "deadList";
+    }
 
 }

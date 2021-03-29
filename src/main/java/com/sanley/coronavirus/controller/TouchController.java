@@ -54,10 +54,8 @@ public class TouchController {
     @RequestMapping(value = "/touch/listByTouchName")
     public String listByTouchName(Model model, @RequestParam(name = "name", required = true) String name) {
         List<Touch> touches = service.findByName(name);
-        System.out.println(touches);
         PageInfo<User> pageInfo = new PageInfo(touches);
         model.addAttribute("pageInfo", pageInfo);
-        System.out.println(pageInfo);
         return "touchList";
     }
 

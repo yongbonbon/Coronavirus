@@ -39,9 +39,9 @@ public interface DeadDao {
     @Results({
             @Result(id = true, property = "baseId", column = "baseId"),
             @Result(property = "deadTime", column = "deadTime"),
-            @Result(property = "patient", column = "patient", javaType = Patient.class,one = @One(select = "com.sanley.coronavirus.dao.PatientDao.findById")),
+            @Result(property = "patient", column = "baseId", javaType = Patient.class,many = @Many(select = "com.sanley.coronavirus.dao.PatientDao.findById")),
             @Result(property = "base", column = "baseId", javaType = Base.class, one = @One(select = "com.sanley.coronavirus.dao.BaseDao.findById"))
     })
     //根据姓名查找死者
-    public List<Touch> findByName(String name);
+    public List<Dead> findByName(String name);
 }

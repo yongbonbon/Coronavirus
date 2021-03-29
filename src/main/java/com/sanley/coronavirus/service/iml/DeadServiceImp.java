@@ -35,5 +35,8 @@ public class DeadServiceImp implements DeadService {
         return dao.number();
     }
 
-
+    @Override
+    public List<Dead> findByName(String name) {
+        return dao.findByName(name);
+    }
 }

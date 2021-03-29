@@ -97,9 +97,19 @@
 
                     <!-- 数据表格 -->
                     <div class="table-box">
+                        <!--工具栏-->
+                        <div class="pull-left">
+                            <div class="form-group form-inline">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default" onclick="location.href='/dead/list'" title="刷新">
+                                        <i class="fa fa-refresh"></i> 刷新
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                         <div class="box-tools pull-right" style="margin-bottom: 20px">
                             <div class="has-feedback">
-                                <form th:action="@{/touch/listByTouchName}" method="get">
+                                <form th:action="@{/dead/listByDeadName}" method="get">
                                     <div style="display: flex;justify-content: center">
                                         <input type="text" name="name" class="form-control input-sm"
                                                style="margin-right: 20px"
@@ -119,8 +129,8 @@
                                 <th class="text-center">性别</th>
                                 <th class="text-center">住址</th>
                                 <th class="text-center">死亡日期</th>
-                                <!-- <th class="sorting">现状</th>-->
                                 <th class="text-center">感染来源</th>
+                                <th class="text-center">操作</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -135,7 +145,6 @@
                                 <td class="text-center"th:text="${dead.getPatient().getInfectionSource()}"></td>
                                 <td class="text-center">
                                     <button type="button" class="btn btn-info" th:onclick="|detail(${dead.getBaseId()})|">详情</button>
-
                                 </td>
                             </tr>
                             </tbody>

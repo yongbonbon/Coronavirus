@@ -2,10 +2,7 @@ package com.sanley.coronavirus.dao;/*
 Created by shkstart on 2020/2/23.
 */
 
-import com.sanley.coronavirus.entity.Base;
-import com.sanley.coronavirus.entity.Cure;
-import com.sanley.coronavirus.entity.Dead;
-import com.sanley.coronavirus.entity.Patient;
+import com.sanley.coronavirus.entity.*;
 import org.apache.ibatis.annotations.*;
 
 import java.sql.Date;
@@ -50,5 +47,14 @@ public interface CureDao {
     @Select("select sum(1) from cure where dischargeDate <#{date}")
     public int beforeDay(Date date);
 
-
+    @Select("SELECT baseId,deadTime " +
+            " FROM dead WHERE baseId in(select id from base where name like #{name})")
+    @Results({
+            @Result(id = true, property = "baseId", column = "baseId"),
+            @Result(property = "deadTime", column = "deadTime"),
+            @Result(property = "patient", column = "patient", javaType = Patient.class,one = @One(select = "com.sanley.coronavirus.dao.PatientDao.findById")),
+            @Result(property = "base", column = "baseId", javaType = Base.class, one = @One(select = "com.sanley.coronavirus.dao.BaseDao.findById"))
+    })
+    //根据姓名查找痊愈者
+    public List<Touch> findByName(String name);
 }
