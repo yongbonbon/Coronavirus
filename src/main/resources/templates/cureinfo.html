@@ -213,12 +213,9 @@
             </div>
 
             <div class="panel panel-default">
-                <div class="panel-heading" style="font-weight: bold">现状 <button type="button" class="btn bg-olive btn-xs" th:onclick="|edit(${cure.getBaseId()})|">编辑</button></div>
-
+                <div class="panel-heading" style="font-weight: bold">现状</div>
                 <div class="col-md-10 data rowHeight2x">
-                    <div class="col-md-2 title rowHeight2x">现状 </div>
                     <textarea class="form-control" rows="1" th:text="${cure.getCurrent()}">
-
 						</textarea>
                 </div>
 

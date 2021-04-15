@@ -1,6 +1,4 @@
-package com.sanley.coronavirus.entity;/*
-Created by shkstart on 2020/3/15.
-*/
+package com.sanley.coronavirus.entity;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
