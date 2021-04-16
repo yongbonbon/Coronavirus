@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>确诊患者管理 </title>
+    <title>打卡列表 </title>
     <meta name="description" content="AdminLTE2定制版">
     <meta name="keywords" content="AdminLTE2定制版">
 
@@ -64,17 +64,6 @@
 
 <div class="wrapper">
 
-    <!--  &lt;!&ndash; 页面头部 &ndash;&gt;
-      <jsp:include page="header.jsp"></jsp:include>
-      &lt;!&ndash; 页面头部 /&ndash;&gt;
-
-
-
-      <jsp:include page="aside.jsp"></jsp:include>-->
-    <!-- 导航侧栏 /-->
-    <!--<div class="aside-main">
-        <div id="aside" th:include=":: common_head"></div>
-    </div>-->
     <div th:replace="commons/bar::#headerbar"></div>
     <div  th:replace="commons/bar::#sidebar"></div>
     <!-- 内容区域 -->
@@ -84,15 +73,11 @@
         <!-- 内容头部 -->
         <section class="content-header">
             <h1>
-               密切接触者管理 <small></small>
+                打卡列表 <small></small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="${pageContext.request.contextPath}/index.jsp"><i
+                <li><a href="/indexpage"><i
                         class="fa fa-dashboard"></i> 首页</a></li>
-                <li><a
-                        href="/touch/list/list">密切接触者管理</a></li>
-
-
             </ol>
         </section>
         <!-- 内容头部 /-->
@@ -113,11 +98,11 @@
                         <div class="pull-left">
                             <div class="form-group form-inline">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-default" title="新建" onclick="location.href='/touch/toAdd'">
-                                        <i class="fa fa-file-o"></i> 新建
+                                    <button type="button" class="btn btn-default" title="新建" onclick="location.href='/checkOut/toAdd'">
+                                        <i class="fa fa-file-o"></i> 打卡
                                     </button>
 
-                                    <button type="button" class="btn btn-default" onclick="location.href='/touch/list'" title="刷新">
+                                    <button type="button" class="btn btn-default" onclick="location.href='/checkOut/list'" title="刷新">
                                         <i class="fa fa-refresh"></i> 刷新
                                     </button>
                                 </div>
@@ -125,7 +110,7 @@
                         </div>
                         <div class="box-tools pull-right">
                             <div class="has-feedback">
-                                <form th:action="@{/touch/listByTouchName}" method="get">
+                                <form th:action="@{/checkOut/listByCheckOutName}" method="get">
                                     <div style="display: flex;justify-content: center">
                                         <input type="text" name="name" class="form-control input-sm"
                                                style="margin-right: 20px"
@@ -143,29 +128,26 @@
                             <thead>
                             <tr>
                                 <th class="text-center" >姓名</th>
-                                <th class="text-center" >身份证号码</th>
-                                <th class="text-center">性别</th>
-                                <th class="text-center">接触来源</th>
-                                <th class="text-center">隔离地址</th>
-<!--                                 <th class="sorting">现状</th>-->
-                                <th class="text-center">隔离开始日期</th>
-                                <th class="text-center">操作</th>
+                                <th class="text-center" >目前位置</th>
+                                <th class="text-center">健康状况</th>
+                                <th class="text-center">体温</th>
+                                <th class="text-center">打卡时间</th>
+                                <th class="text-center">过去14天内是否到过高、中风险地区</th>
+                                <th class="text-center">是否接触过疑似或者确诊的新型肺炎患者</th>
+                                <th class="text-center">备注</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr th:each="touch:${pageInfo.getList()}">
+                            <tr th:each="checkOut:${pageInfo.getList()}">
 
-                                <td class="text-center" th:text="${touch.getBase().getName()}"></td>
-                                <td class="text-center"th:text="${touch.getBase().getIdCard()}"></td>
-                                <td class="text-center"th:text="${touch.getBase().getGender()}"></td>
-                                <td class="text-center"th:text="${touch.getComeFrom()}"></td>
-                                <td class="text-center"th:text="${touch.getIsoAddress()}"></td>
-                                <td class="text-center"th:text="${#dates.format(touch.getStartDate(),'yyyy-MM-dd')}"></td>
-                                <td class="text-center">
-                                    <button type="button" class="btn btn-info" th:onclick="|detail(${touch.getBaseId()})|">详情</button>
-                                    <button type="button" class="btn btn-success" th:onclick="|toSafe(${touch.getBaseId()})|">隔离完成</button>
-                                    <button type="button" class="btn btn-danger" th:onclick="|toPatient(${touch.getBaseId()})|">转为确诊</button>
-                                </td>
+                                <td class="text-center" th:text="${checkOut.getName()}"></td>
+                                <td class="text-center"th:text="${checkOut.getCurrentPosition()}"></td>
+                                <td class="text-center"th:text="${checkOut.getHealthState()}"></td>
+                                <td class="text-center"th:text="${checkOut.getBodyTemperature()}"></td>
+                                <td class="text-center"th:text="${#dates.format(checkOut.getCheckOutDate(),'yyyy-MM-dd')}"></td>
+                                <td class="text-center"th:text="${checkOut.getIsToHighArea()}"></td>
+                                <td class="text-center"th:text="${checkOut.getIsTouch()}"></td>
+                                <td class="text-center"th:text="${checkOut.getRemarks()}"></td>
                             </tr>
                             </tbody>
 

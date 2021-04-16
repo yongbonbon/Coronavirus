@@ -4,14 +4,12 @@ import com.sanley.coronavirus.dao.BaseDao;
 import com.sanley.coronavirus.dao.PatientDao;
 import com.sanley.coronavirus.entity.Base;
 import com.sanley.coronavirus.entity.CheckOut;
-import com.sanley.coronavirus.entity.Patient;
 import com.sanley.coronavirus.service.BaseService;
 import com.sanley.coronavirus.service.CheckOutService;
-import com.sanley.coronavirus.service.iml.BaseServiceImp;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import java.util.List;
 
 import java.math.BigInteger;
 
@@ -43,7 +41,7 @@ class CoronavirusApplicationTests {
 
     @Test
     void baseFind() {
-        Base  base = baseService.findById(78);
+        Base base = baseService.findById(78);
         System.out.println(base);
     }
 
@@ -59,6 +57,11 @@ class CoronavirusApplicationTests {
                 setName("Halo").
                 setRemarks("xxx");
         checkOutService.add(checkOut);
+    }
+
+    @Test
+    void findAll() {
+        System.out.println(checkOutService.findAll(1, 25));
     }
 
 }
