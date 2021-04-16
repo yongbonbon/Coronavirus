@@ -11,6 +11,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class, SecurityAutoConfiguration.class})
+@MapperScan("com.sanley.coronavirus.dao")
 public class CoronavirusApplication extends WebMvcConfigurationSupport {
 
     public static void main(String[] args) {

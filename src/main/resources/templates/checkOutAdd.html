@@ -5,7 +5,7 @@
     <!-- 页面meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>病患新建</title>
+    <title>个人打卡</title>
     <meta name="description" content="AdminLTE2定制版">
     <meta name="keywords" content="AdminLTE2定制版">
 
@@ -75,52 +75,66 @@
         <!-- 内容头部 -->
         <section class="content-header">
             <h1>
-                密切接触者管理 <small>新建密切接触者</small>
+                个人打卡 <small>疫情防护要牢记，开始今天的打卡吧！</small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="/indexpage"><i
                         class="fa fa-dashboard"></i> 首页</a></li>
-                <li><a
-                        href="/touch/list/">密切接触者管理</a></li>
-                <li class="active">新建密切接触者</li>
             </ol>
         </section>
         <!-- 内容头部 /-->
 
-        <form action="/touch/add" method="post">
-
-
-
+        <form action="/checkOut/add"
+              method="post">
             <!-- 正文区域 -->
             <section class="content"> <!--产品信息-->
-
                 <div class="panel panel-default">
-                    <div class="panel-heading">隔离信息</div>
+                    <div class="panel-heading">打卡信息</div>
                     <div class="row data-type">
 
-                        <input type="text" name="baseId"
-                               th:value="${baseId}" hidden="" >
-                        <div class="col-md-2 title">接触来源</div>
+                        <div class="col-md-2 title">姓名</div>
                         <div class="col-md-4 data">
-                            <input type="text" class="form-control" name="comeFrom"
-                                   placeholder="接触来源" value="">
+                            <input type="text" class="form-control" name="name"
+                                   placeholder="姓名" value="">
                         </div>
-                        <div class="col-md-2 title">隔离开始时间</div>
+                        <div class="col-md-2 title">目前位置</div>
                         <div class="col-md-4 data">
-                            <input type="date" class="form-control" name="startDate"
-                                   placeholder="隔离开始时间" value="">
+                            <input type="text" class="form-control" name="currentPosition"
+                                   placeholder="目前位置" value="">
                         </div>
-                        <div class="col-md-2 title">隔离地址</div>
+                        <div class="col-md-2 title">健康状况</div>
                         <div class="col-md-4 data">
-                            <input type="text" class="form-control" name="isoAddress"
-                                   placeholder="隔离地址" value="">
+                            <input type="text" class="form-control" name="healthState"
+                                   placeholder="健康状况" value="">
+                        </div>
+                        <div class="col-md-2 title">体温</div>
+                        <div class="col-md-4 data">
+                            <input type="text" class="form-control" name="bodyTemperature"
+                                   placeholder="体温" value="">
+                        </div>
+                        <div class="col-md-2 title">打卡时间</div>
+                        <div class="col-md-4 data">
+                            <input type="date" class="form-control" name="checkOutDate"
+                                   placeholder="打卡时间" value="">
+                        </div>
+                        <div class="col-md-2 title">过去14天内是否到过高、中风险地区</div>
+                        <div class="col-md-4 data">
+                            <input type="text" class="form-control" name="isToHighArea"
+                                   placeholder="是否到达" value="">
+                        </div>
+                        <div class="col-md-2 title">是否接触过疑似或者确诊的新型肺炎患者</div>
+                        <div class="col-md-4 data">
+                            <input type="text" class="form-control" name="isTouch"
+                                   placeholder="是否接触" value="">
+                        </div>
+                        <div class="col-md-2 title">备注</div>
+                        <div class="col-md-4 data">
+                            <input type="text" class="form-control" name="remarks"
+                                   placeholder="是否接触" value="">
                         </div>
 
-                            <input type="text"  name="finished"
-                                 value="否" hidden="">
                     </div>
                 </div>
-                <!--订单信息/--> <!--工具栏-->
                 <div class="box-tools text-center">
                     <button type="submit" class="btn bg-maroon">保存</button>
                 </div>
@@ -129,6 +143,8 @@
         </form>
     </div>
     <!-- 内容区域 /-->
+
+
 
 </div>
 
@@ -218,8 +234,10 @@
         src="/plugins/bootstrap-slider/bootstrap-slider.js"></script>
 <script
         src="/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
+<script src="http://api.map.baidu.com/api?v=1.4" type="text/javascript"></script>
 
-<script>
+<script type="text/javascript">
+
     $(document).ready(function() {
         // 选择框
         $(".select2").select2();
@@ -255,8 +273,71 @@
             format : "yyyy-mm-dd hh:ii",
 
         });
-
     });
+
+    function getLocation() {
+        var options = {
+            enableHighAccuracy : true,
+            maximumAge : 1000
+        }
+        alert('this is getLocation()');
+        if (navigator.geolocation) {
+            //浏览器支持geolocation
+            navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
+        } else {
+            //浏览器不支持geolocation
+            alert('您的浏览器不支持地理位置定位');
+        }
+    }
+
+    //成功时
+    function onSuccess(position) {
+        //返回用户位置
+        //经度
+        var longitude = position.coords.longitude;
+        //纬度
+        var latitude = position.coords.latitude;
+        alert('当前地址的经纬度：经度' + longitude + '，纬度' + latitude);
+        //根据经纬度获取地理位置，不太准确，获取城市区域还是可以的
+        var map = new BMap.Map("allmap");
+        var point = new BMap.Point(longitude, latitude);
+        var gc = new BMap.Geocoder();
+        gc.getLocation(point, function(rs) {
+            var addComp = rs.addressComponents;
+            alert(addComp.province + ", " + addComp.city + ", "+ addComp.district + ", " + addComp.street + ", "+ addComp.streetNumber);
+        });
+        // 这里后面可以写你的后续操作了
+        postData(longitude, latitude);
+    }
+    //失败时
+    function onError(error) {
+        switch (error.code) {
+            case 1:
+                alert("位置服务被拒绝");
+                break;
+            case 2:
+                alert("暂时获取不到位置信息");
+                break;
+            case 3:
+                alert("获取信息超时");
+                break;
+            case 4:
+                alert("未知错误");
+                break;
+        }
+        // 这里后面可以写你的后续操作了
+        //经度
+        var longitude = 23.1823780000;
+        //纬度
+        var latitude = 113.4233310000;
+        postData(longitude, latitude);
+    }
+
+    // 页面载入时请求获取当前地理位置
+    window.onload = function(){
+        // html5获取地理位置
+        getLocation();
+    };
 </script>
 
 
