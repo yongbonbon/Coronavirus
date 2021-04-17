@@ -86,8 +86,7 @@
 
         <form action="/checkOut/add"
               method="post">
-            <!-- 正文区域 -->
-            <section class="content"> <!--产品信息-->
+                       <section class="content">
                 <div class="panel panel-default">
                     <div class="panel-heading">打卡信息</div>
                     <div class="row data-type">
@@ -98,8 +97,9 @@
                                    placeholder="姓名" value="">
                         </div>
                         <div class="col-md-2 title">目前位置</div>
-                        <div class="col-md-4 data">
-                            <input type="text" class="form-control" name="currentPosition"
+                        <div class="col-md-4 data" style="display: flex">
+                            <input type="button" class="btn bg-olive"  value="点击获取位置" onclick="clickToGetAddress()"></input>
+                            <input type="text" class="form-control" name="currentPosition" id="currentPosition"
                                    placeholder="目前位置" value="">
                         </div>
                         <div class="col-md-2 title">健康状况</div>
@@ -117,12 +117,12 @@
                             <input type="date" class="form-control" name="checkOutDate"
                                    placeholder="打卡时间" value="">
                         </div>
-                        <div class="col-md-2 title">过去14天内是否到过高、中风险地区</div>
+                        <div class="col-md-2 title">是否到过高、中风险地区</div>
                         <div class="col-md-4 data">
                             <input type="text" class="form-control" name="isToHighArea"
                                    placeholder="是否到达" value="">
                         </div>
-                        <div class="col-md-2 title">是否接触过疑似或者确诊的新型肺炎患者</div>
+                        <div class="col-md-2 title">是否接触过疑似或者确诊</div>
                         <div class="col-md-4 data">
                             <input type="text" class="form-control" name="isTouch"
                                    placeholder="是否接触" value="">
@@ -280,7 +280,6 @@
             enableHighAccuracy : true,
             maximumAge : 1000
         }
-        alert('this is getLocation()');
         if (navigator.geolocation) {
             //浏览器支持geolocation
             navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
@@ -297,14 +296,14 @@
         var longitude = position.coords.longitude;
         //纬度
         var latitude = position.coords.latitude;
-        alert('当前地址的经纬度：经度' + longitude + '，纬度' + latitude);
+        document.getElementById("currentPosition").value= `当前经纬度：经度 ${longitude}，纬度 ${latitude}`
         //根据经纬度获取地理位置，不太准确，获取城市区域还是可以的
         var map = new BMap.Map("allmap");
         var point = new BMap.Point(longitude, latitude);
         var gc = new BMap.Geocoder();
         gc.getLocation(point, function(rs) {
             var addComp = rs.addressComponents;
-            alert(addComp.province + ", " + addComp.city + ", "+ addComp.district + ", " + addComp.street + ", "+ addComp.streetNumber);
+            document.getElementById("currentPosition").value=`${addComp.province}, ${addComp.city}, ${addComp.district}`
         });
         // 这里后面可以写你的后续操作了
         postData(longitude, latitude);
@@ -333,11 +332,15 @@
         postData(longitude, latitude);
     }
 
-    // 页面载入时请求获取当前地理位置
-    window.onload = function(){
-        // html5获取地理位置
+    // // 页面载入时请求获取当前地理位置
+    // window.onload = function(){
+    //     // html5获取地理位置
+    //     getLocation();
+    // };
+
+    const clickToGetAddress = () => {
         getLocation();
-    };
+    }
 </script>
 
 
