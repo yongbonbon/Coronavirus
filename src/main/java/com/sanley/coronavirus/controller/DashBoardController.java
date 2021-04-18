@@ -24,8 +24,6 @@ public class DashBoardController {
         InputStream is = conn.getInputStream();
         BufferedReader br = new BufferedReader(new InputStreamReader(is,"UTF-8"));
         String text1 = br.readLine();
-        /*model.addAttribute("text1", text1);
-        System.out.println(text1);*/
         br.close();
         return text1;
     }
