@@ -160,4 +160,97 @@
 
 }
 
+.Vaccination__pointList--wJhJb {
+	padding: 0 100px;
+	background-color: #fff;
+}
+
+.Vaccination__pointCard--1j5Ki {
+	padding: 2.6rem .5rem 2.15rem .5rem;
+	position: relative;
+}
+
+.Vaccination__titleWrap--26PRP {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-right: 7rem;
+}
+
+.Vaccination__title--2juoB {
+	color: #26214b;
+	font-size: 16px;
+	font-weight: bolder;
+	line-height: 2.1rem;
+	flex: 1;
+	min-width: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap
+}
+
+.Vaccination__address--3rL5l {
+	margin-top: .5rem;
+	font-size: 16px;
+	color: #8f8db2;
+	line-height: 1.85rem;
+	padding-right: 7.5rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.Vaccination__bottomWrap--skiBk {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 1.7rem;
+}
+
+.Vaccination__tipWrapper--20Zg0 {
+	display: flex;
+	align-items: center;
+	flex: 1;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.Vaccination__tip--3kE3r {
+	font-size: 14px;
+	color: #686a8a;
+	line-height: 1.65rem;
+	min-width: 0;
+}
+
+.Vaccination__divider--2IuOy {
+	padding: 0 .6rem;
+	box-sizing: border-box;
+	position: relative;
+}
+
+.Vaccination__serviceTag--13mcr {
+	max-width: 14rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.Vaccination__callBtn--HAkBC {
+	height: 3rem;
+	border-radius: 1.5rem;
+	background: #f2f0ff;
+	color: #8170ff;
+	font-size: 1.2rem;
+	font-weight: bolder;
+	width: 200px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.mustknow {
+	padding: 0 100px;
+	background-color: #fff;
+}
 

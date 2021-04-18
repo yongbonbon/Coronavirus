@@ -1,6 +1,5 @@
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="en">
 <head >
 
     <!-- 页面meta -->
@@ -12,18 +11,13 @@
     <meta name="keywords" content="AdminLTE2定制版">
 
     <!-- Tell the browser to be responsive to screen width -->
-    <meta
-            content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
+    <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
             name="viewport">
 
-    <link rel="stylesheet"
-          th:href="@{/plugins/bootstrap/css/bootstrap.min.css}" type="text/css">
-    <link rel="stylesheet"
-          th:href="@{/plugins/font-awesome/css/font-awesome.min.css}" type="text/css">
-    <link rel="stylesheet"
-          th:href="@{/plugins/ionicons/css/ionicons.min.css}" type="text/css">
-    <link rel="stylesheet"
-          th:href="@{/plugins/iCheck/square/blue.css}" type="text/css">
+    <link rel="stylesheet" href="/plugins/bootstrap/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/plugins/font-awesome/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="/plugins/ionicons/css/ionicons.min.css" type="text/css">
+    <link rel="stylesheet" href="/plugins/iCheck/square/blue.css" type="text/css">
     <link rel="stylesheet"
           th:href="@{/plugins/morris/morris.css}" type="text/css">
     <link rel="stylesheet"
@@ -58,18 +52,15 @@
           th:href="@{/plugins/ionslider/ion.rangeSlider.skinNice.css}" type="text/css">
     <link rel="stylesheet"
           th:href="@{/plugins/bootstrap-slider/slider.css}" type="text/css">
-    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
 
 <div class="wrapper">
 
-
     <div th:replace="commons/bar::#headerbar"></div>
     <div  th:replace="commons/bar::#sidebar"></div>
-    <!-- 内容区域 -->
+
 
     <div class="content-wrapper">
 
@@ -79,11 +70,9 @@
                 疫苗接种 <small></small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="${pageContext.request.contextPath}/index.jsp"><i
+                <li><a><i
                         class="fa fa-dashboard"></i> 首页</a></li>
-                <li><a
-                        href="/dashboard/vaccination">疫苗接种</a></li>
-
+                <li><a href="/dashboard/vaccination">疫苗接种</a></li>
 
             </ol>
         </section>
@@ -93,14 +82,95 @@
         <section class="content">
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="box-title" style="font-weight: bold; margin-left: 100px">接种点查询</h3>
+                    <h3 class="box-title" style="font-weight: bold; margin-left: 100px">推荐接种点</h3>
                     <h3 class="box-title" style="margin-left: 500px">您当前所在位置：陕西 西安</h3>
                 </div>
                 <div class="Vaccination__subtitle--1WHJf">
                     <span class="Vaccination__tag--FIZSn">
                         最新
                     </span>
-                    <span>&nbsp;&nbsp;&nbsp;全国 27 省 116 市 2656 个接种点</span>
+                    <span>&nbsp;新冠疫情暴发以来，全球对疫苗翘首以盼。在国内外各方科研团队的努力下，新冠疫苗初现成果。部分国家开展疫苗接种，我国也逐渐开展疫苗接种工作。</span>
+                </div>
+                <hr/>
+                <div class="Vaccination__pointList--wJhJb">
+                    <div class="Vaccination__pointCard--1j5Ki">
+                        <div class="Vaccination__titleWrap--26PRP">
+                            <div class="Vaccination__title--2juoB">西安北环医院</div>
+                        </div>
+                        <div class="Vaccination__address--3rL5l">未央区重光路59号</div>
+                        <div class="Vaccination__bottomWrap--skiBk">
+                            <div class="Vaccination__tipWrapper--20Zg0">
+                                <div class="Vaccination__tip--3kE3r">有户籍限制</div>
+                                <div class="Vaccination__divider--2IuOy"></div>
+                                <div class="Vaccination__serviceTag--13mcr">仅限重点人群接种</div>
+                            </div>
+                            <a class="Vaccination__callBtn--HAkBC">电话咨询 tel:029-86728751</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="Vaccination__pointList--wJhJb">
+                    <div class="Vaccination__pointCard--1j5Ki">
+                        <div class="Vaccination__titleWrap--26PRP">
+                            <div class="Vaccination__title--2juoB">陕西省人民医院</div>
+                        </div>
+                        <div class="Vaccination__address--3rL5l">西安市友谊西路256号</div>
+                        <div class="Vaccination__bottomWrap--skiBk">
+                            <div class="Vaccination__tipWrapper--20Zg0">
+                                <div class="Vaccination__tip--3kE3r">有户籍限制</div>
+                                <div class="Vaccination__divider--2IuOy"></div>
+                                <div class="Vaccination__serviceTag--13mcr">仅限重点人群接种</div>
+                            </div>
+                            <a class="Vaccination__callBtn--HAkBC">电话咨询 029-85251331</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="Vaccination__pointList--wJhJb">
+                    <div class="Vaccination__pointCard--1j5Ki">
+                        <div class="Vaccination__titleWrap--26PRP">
+                            <div class="Vaccination__title--2juoB">武警陕西省总队医院</div>
+                        </div>
+                        <div class="Vaccination__address--3rL5l">陕西省西安市南二环东段88号</div>
+                        <div class="Vaccination__bottomWrap--skiBk">
+                            <div class="Vaccination__tipWrapper--20Zg0">
+                                <div class="Vaccination__tip--3kE3r">有户籍限制</div>
+                                <div class="Vaccination__divider--2IuOy"></div>
+                                <div class="Vaccination__serviceTag--13mcr">仅限重点人群接种</div>
+                            </div>
+                            <a class="Vaccination__callBtn--HAkBC">电话咨询 tel:029-86699209</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="Vaccination__pointList--wJhJb">
+                    <div class="Vaccination__pointCard--1j5Ki">
+                        <div class="Vaccination__titleWrap--26PRP">
+                            <div class="Vaccination__title--2juoB">中航工业西安医院</div>
+                        </div>
+                        <div class="Vaccination__address--3rL5l">西安市莲湖区大庆路636号</div>
+                        <div class="Vaccination__bottomWrap--skiBk">
+                            <div class="Vaccination__tipWrapper--20Zg0">
+                                <div class="Vaccination__tip--3kE3r">有户籍限制</div>
+                                <div class="Vaccination__divider--2IuOy"></div>
+                                <div class="Vaccination__serviceTag--13mcr">仅限重点人群接种</div>
+                            </div>
+                            <a class="Vaccination__callBtn--HAkBC">电话咨询 tel:029-84264001</a>
+                        </div>
+                    </div>
+                </div>
+
+                <hr />
+
+                <div>
+                    <h3 class="box-title" style="font-weight: bold; margin-left: 100px">接种须知</h3>
+                    <div class="mustknow">
+                        <p style="font-weight: bold;">接种时</p>
+                        <p>（一）全程佩戴口罩，按接种点标识有序排队。</p>
+                        <p>（二）向医生主动如实提供自己健康状况等信息，如实填写知情同意书。</p>
+                        <p style="font-weight: bold;">接种后</p>
+                        <p>（一）接种后留观30分钟，无不适症状方可离开。</p>
+                        <p>（二）接种当日保持接种部位干燥，避免用手搔抓接种部位，避免剧烈运动。</p>
+                        <p>（三）接种后24至48小时内，受种者要观察接种局部有何反应，是否有红肿、头疼、发烧等症状，若有应及时就医并向接种单位报告。</p>
+                        <p>（四）接种后一周内避免接触个人既往已知过敏物及常见致敏原，尽量不饮酒、不吃辛辣刺激和海鲜类食物，建议清淡饮食、多喝水。</p>
+                    </div>
                 </div>
 
 
@@ -111,7 +181,6 @@
 
     </div>
 </div>
-
 <script th:src="@{/plugins/jQuery/jquery-2.2.3.min.js}"></script>
 <script th:src="@{/plugins/jQueryUI/jquery-ui.min.js}"></script>
 <script>
