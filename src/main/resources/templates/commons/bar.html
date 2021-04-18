@@ -2,6 +2,8 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <!--顶部栏-->
 <header class="main-header" id="headerbar">
+    <script th:src="@{/plugins/jQuery/jquery-2.2.3.min.js}"></script>
+    <script th:src="@{/plugins/jQueryUI/jquery-ui.min.js}"></script>
     <!-- Logo -->
     <a href="/indexpage" class="logo"> <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"><b>数据</b></span> <!-- logo for regular state and mobile devices -->
@@ -70,16 +72,18 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
             <li class="header">菜单</li>
-            <li id="admin-index"><a
-                    href="/indexpage"><i
-                    class="fa fa-dashboard"></i> <span>首页</span></a></li>
+            <li id="admin-index">
+                <a href="/indexpage">
+                    <i class="fa fa-dashboard"></i> <span>系统首页</span>
+                </a>
+            </li>
+            <li id="fa fa-dashboard"><a id="yi" href = "/to/dashboard"><i class="fa fa-dashboard"></i> <span>疫情播报</span></a>
+            </li>
             <li id="fa fa-laptop"><a
                     href="/checkOut/toAdd"><i
                     class="fa fa-laptop"></i> <span>个人打卡</span></a>
             </li>
-            <li id="fa fa-edit"><a
-                    href="/checkOut/list"><i
-                    class="fa fa-laptop"></i> <span>人员打卡总记录</span></a>
+            <li id="fa fa-edit"><a href="/checkOut/list"><i class="fa fa-edit"></i> <span>人员打卡总记录</span></a>
             </li>
 
             <li class="treeview"><a href="#"> <i class="fa fa-cogs"></i>
@@ -91,10 +95,7 @@
 
                 <ul class="treeview-menu">
                     <li id="system-setting1">
-                        <a
-                                href="/manager/list/"> <i
-                                class="fa fa-circle-o"></i> 用户管理
-                        </a>
+                        <a href="/manager/list/"> <i class="fa fa-circle-o"></i> 用户管理</a>
                     </li>
                 </ul>
 
