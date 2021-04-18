@@ -32,4 +32,9 @@ public class DashBoardController {
     public String toDashBoards() {
         return "dashboard";
     }
+
+    @RequestMapping(value = "/dashboard/vaccination")
+    public String toVaccination() {
+        return "vaccination";
+    }
 }

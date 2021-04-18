@@ -142,4 +142,22 @@
     text-decoration: none
 }
 
+.Vaccination__subtitle--1WHJf {
+	margin-top: 16px;
+	color: #8f8db2;
+	font-size: 16px;
+}
+
+.Vaccination__tag--FIZSn {
+	color: #fff;
+	font-size: 16px;
+	line-height: 16px;
+	font-weight: bolder;
+	padding: 10px;
+	background-color: #f05c5c;
+	border-radius: 10px;
+	margin-left: 105px;
+
+}
+
 
