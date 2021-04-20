@@ -37,4 +37,9 @@ public class DashBoardController {
     public String toVaccination() {
         return "vaccination";
     }
+
+    @RequestMapping(value = "/dashboard/acidTest")
+    public String toAcidTest() {
+        return "nucleicAcidTest";
+    }
 }
