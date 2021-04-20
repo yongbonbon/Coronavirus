@@ -1,29 +1,23 @@
-
-<!DOCTYPE>
-<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="en">
 <head >
-    <!-- 页面meta -->
-    <!--<meta charset="utf-8">-->
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge">-->
 
-    <title>Dashboard </title>
+    <!-- 页面meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>防疫物资</title>
     <meta name="description" content="AdminLTE2定制版">
     <meta name="keywords" content="AdminLTE2定制版">
 
     <!-- Tell the browser to be responsive to screen width -->
-    <meta
-            content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
-            name="viewport">
+    <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
+          name="viewport">
 
-    <link rel="stylesheet"
-          th:href="@{/plugins/bootstrap/css/bootstrap.min.css}" type="text/css">
-    <link rel="stylesheet"
-          th:href="@{/plugins/font-awesome/css/font-awesome.min.css}" type="text/css">
-    <link rel="stylesheet"
-          th:href="@{/plugins/ionicons/css/ionicons.min.css}" type="text/css">
-    <link rel="stylesheet"
-          th:href="@{/plugins/iCheck/square/blue.css}" type="text/css">
+    <link rel="stylesheet" href="/plugins/bootstrap/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/plugins/font-awesome/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="/plugins/ionicons/css/ionicons.min.css" type="text/css">
+    <link rel="stylesheet" href="/plugins/iCheck/square/blue.css" type="text/css">
     <link rel="stylesheet"
           th:href="@{/plugins/morris/morris.css}" type="text/css">
     <link rel="stylesheet"
@@ -58,113 +52,80 @@
           th:href="@{/plugins/ionslider/ion.rangeSlider.skinNice.css}" type="text/css">
     <link rel="stylesheet"
           th:href="@{/plugins/bootstrap-slider/slider.css}" type="text/css">
-    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
-
-
-    <script>
-        var data;
-        $.ajax({
-            url:"/dashboard/index",
-            dataType : "json",
-            async:false,
-            success:function (response) {
-                data = response;
-                console.log(response);
-            }
-        });
-    </script>
-
-
-    <script src="https://cdn.bootcss.com/echarts/4.7.0/echarts.min.js"></script>
-    <script src="http://cdn.zaixianke.com/china.js"></script>
-    <script src="http://cdn.zaixianke.com/world.js"></script>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
-<div th:replace="commons/bar::#headerbar"></div>
-<div  th:replace="commons/bar::#sidebar"></div>
-<div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <h1>
-            首页
-            <small>疫情数据</small>
-        </h1>
-        <ol class="breadcrumb">
-            <li><a href="/index"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">疫情数据</li>
-        </ol>
-    </section>
 
-    <!-- Main content -->
-    <section class="content">
+<div class="wrapper">
 
-        <div class="row">
-            <!-- ./col -->
-            <div class="col-lg-3 col-xs-6">
-                <!-- small box -->
-                <div class="small-box bg-green">
-                    <div class="inner">
-                        <h4>疫苗接种<sup style="font-size: 20px"></sup></h4>
-                    </div>
-                    <div class="icon">
-                        <i class="ion ion-person-add"></i>
-                    </div>
-                    <a href="/dashboard/vaccination" class="small-box-footer">更多信息 <i class="fa fa-arrow-circle-right"></i></a>
+    <div th:replace="commons/bar::#headerbar"></div>
+    <div  th:replace="commons/bar::#sidebar"></div>
+
+
+    <div class="content-wrapper">
+
+        <!-- 内容头部 -->
+        <section class="content-header">
+            <h1>
+                防疫物资科普 <small></small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a><i
+                        class="fa fa-dashboard"></i> 首页</a></li>
+                <li><a href="/dashboard/supply">防疫物资科普</a></li>
+
+            </ol>
+        </section>
+        <!-- 内容头部 /-->
+
+        <hr />
+
+        <ul id="myTab" class="nav nav-tabs" style="margin-top: 20px">
+            <li class="active">
+                <a href="#disinfectant" data-toggle="tab">消毒剂</a>
+            </li>
+            <li><a href="#mask" data-toggle="tab">口罩</a></li>
+            <li><a href="#handSoap" data-toggle="tab">洗手液</a></li>
+            <li><a href="#thermometer" data-toggle="tab">温度计</a></li>
+        </ul>
+
+
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade in active" id="disinfectant">
+                <div style="display: flex;flex-direction: column">
+                <img th:src="@{/img/jiujing.png}">
+                <br />
+                <img th:src="@{/img/xiaoduji.png}">
+                <br />
+                <img th:src="@{/img/guoyang.png}">
                 </div>
             </div>
-            <!-- ./col -->
-            <div class="col-lg-3 col-xs-6">
-                <!-- small box -->
-                <div class="small-box bg-yellow">
-                    <div class="inner">
-                        <h4>核酸检测<sup style="font-size: 20px"></sup></h4>
-                    </div>
-                    <div class="icon">
-                        <i class="ion ion-medkit"></i>
-                    </div>
-                    <a href="/dashboard/acidTest" class="small-box-footer">更多信息 <i class="fa fa-arrow-circle-right"></i></a>
+            <div class="tab-pane fade" id="mask">
+                <div style="display: flex; flex-direction: column">
+                    <img th:src="@{/img/kouzhao.png}">
                 </div>
             </div>
-            <!-- ./col -->
-            <div class="col-lg-3 col-xs-6">
-                <!-- small box -->
-                <div class="small-box bg-red">
-                    <div class="inner">
-                        <h4>防疫物资<sup style="font-size: 20px"></sup></h4>
-                    </div>
-                    <div class="icon">
-                        <i class="ion ion-bag"></i>
-                    </div>
-                    <a href="/dashboard/supply" class="small-box-footer">更多信息 <i class="fa fa-arrow-circle-right"></i></a>
+            <div class="tab-pane fade" id="handSoap">
+                <div style="display: flex; flex-direction: column">
+                    <img th:src="@{/img/xishouye.png}">
+                </div>
+            </div>
+            <div class="tab-pane fade" id="thermometer">
+                <div style="display: flex; flex-direction: column">
+                    <img th:src="@{/img/wenduji.png}">
                 </div>
             </div>
         </div>
 
-        <div id="main" style="width: 100%; height: 600px;"> <br>
-        <a style="color: rgb(51, 51, 51); display: none;" class="control" align="center" href="javascript:updateMap(0)">国内累计</a>
-        <a style="color:#333" class="control" align="center" href="javascript:updateMap(1)">国内新增</a>
-        <a style="color:#333" class="control" align="center" href="javascript:updateMap(2)">全球累计</a>
-        <a style="color:#333" class="control" align="center" href="javascript:updateMap(3)">全球新增</a>
-        </div>
 
 
-
-
-
-        <script th:src="@{/control.js}"></script>
-        <script  src="js/Chart.js"></script>
-        <div style="text-align:center;clear:both">
-            <script src="/gg_bd_ad_720x90-2.js" type="text/javascript"></script>
-        </div>
-    </section>
-    <!-- /.content -->
+    </div>
 </div>
-
-<!-- /.content-wrapper -->
-
-<!--<script th:src="@{/plugins/jQuery/jquery-2.2.3.min.js}"></script>-->
-<!--<script th:src="@{/plugins/jQueryUI/jquery-ui.min.js}"></script>-->
+<script th:src="@{/plugins/jQuery/jquery-2.2.3.min.js}"></script>
+<script th:src="@{/plugins/jQueryUI/jquery-ui.min.js}"></script>
 <script>
     $.widget.bridge('uibutton', $.ui.button);
 </script>
@@ -211,18 +172,30 @@
 <script th:src="@{/plugins/flot/jquery.flot.categories.min.js}"></script>
 <script th:src="@{/plugins/ionslider/ion.rangeSlider.min.js}"></script>
 <script th:src="@{/plugins/bootstrap-slider/bootstrap-slider.js}"></script>
-
 <script>
-        $(document).ready(function () {
 
-            // 选择框
-            $(".select2").select2();
+    function detail(id) {
+        location.href = "/touch/info/"
+            + id;
 
-            // WYSIHTML5编辑器
-            $(".textarea").wysihtml5({
-                locale: 'zh-CN'
-            });
+    }
+    function changePageSize() {
+        //获取下拉框的值
+        var pageSize = $("#changePageSize").val();
+
+        //向服务器发送请求，改变没页显示条数
+        location.href = "/touch/list?page=1&size="
+            + pageSize;
+    }
+    $(document).ready(function() {
+        // 选择框
+        $(".select2").select2();
+
+        // WYSIHTML5编辑器
+        $(".textarea").wysihtml5({
+            locale : 'zh-CN'
         });
+    });
 
     // 设置激活菜单
     function setSidebarActive(tagUri) {
@@ -268,6 +241,7 @@
                         });
             });
 </script>
+
 </body>
 
 </html>

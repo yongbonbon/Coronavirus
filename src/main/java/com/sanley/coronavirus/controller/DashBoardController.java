@@ -42,4 +42,9 @@ public class DashBoardController {
     public String toAcidTest() {
         return "nucleicAcidTest";
     }
+
+    @RequestMapping(value = "/dashboard/supply")
+    public String toSupply() {
+        return "supply";
+    }
 }
