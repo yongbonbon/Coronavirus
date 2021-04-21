@@ -20,8 +20,8 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         //定制请求的授权规则
         http.authorizeRequests().antMatchers("/index").permitAll()
-                .antMatchers("/patient/**","/touch/**","/cure/**","/dead/**").hasRole("User")
-                .antMatchers("/manager/**").hasRole("Admin");
+                .antMatchers("/dashboard/**,/checkOut/**").hasRole("User")
+                .antMatchers("/manager/**/","patient/**","/touch/**","/cure/**","/dead/**").hasRole("Admin");
 
         //开启自动配置的登录功能
         http.formLogin();

@@ -63,7 +63,7 @@ public class CheckOutController {
         return "checkOutList";
     }
 
-    @RequestMapping(value = "checkOut/listByCheckOutName")
+    @RequestMapping(value = "/checkOut/listByCheckOutName")
     public String listByCureName(Model model, @RequestParam(name = "name", required = true) String name) {
         java.util.List<CheckOut> checkOut = checkOutService.findByName(name);
         PageInfo<Cure> pageInfo = new PageInfo(checkOut);

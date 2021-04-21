@@ -155,8 +155,8 @@
                                 <td class="text-center"th:text="${user.unit}"></td>
                                 <td class="text-center"th:text="${user.isAdmin()==true}?'是':'否'"></td>
                                 <td class="text-center">
-                                    <button type="button" class="btn btn-success" th:if="${user.isAdmin()==false}" th:onclick="|toSuper(${user.id})|">设为超级管理员</button>
-                                    <button type="button" class="btn btn-danger" th:onclick="|deleteUser(${user.id})|">删除管理员</button>
+                                    <button type="button" class="btn btn-success" th:if="${user.isAdmin()==false}" th:onclick="|toSuper(${user.id})|">设为管理员</button>
+                                    <button type="button" class="btn btn-danger" th:onclick="|deleteUser(${user.id})|">删除</button>
                                 </td>
                             </tr>
                             </tbody>
