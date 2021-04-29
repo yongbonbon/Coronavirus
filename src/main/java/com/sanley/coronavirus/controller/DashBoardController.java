@@ -47,4 +47,9 @@ public class DashBoardController {
     public String toSupply() {
         return "supply";
     }
+
+    @RequestMapping(value = "/noAccess")
+    public String toNoAccess() {
+        return "noAccess";
+    }
 }

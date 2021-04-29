@@ -16,12 +16,18 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class MySecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private MyUserDetailService myUserDetailService;
+
+    @Autowired
+    private MyAccessDenied myAccessDenied;
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         //定制请求的授权规则
         http.authorizeRequests().antMatchers("/index").permitAll()
                 .antMatchers("/dashboard/**,/checkOut/**").hasRole("User")
                 .antMatchers("/manager/**/","patient/**","/touch/**","/cure/**","/dead/**").hasRole("Admin");
+
+        http.exceptionHandling().accessDeniedHandler(myAccessDenied);
 
         //开启自动配置的登录功能
         http.formLogin();

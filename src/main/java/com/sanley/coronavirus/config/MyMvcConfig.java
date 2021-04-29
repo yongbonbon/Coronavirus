@@ -1,13 +1,9 @@
-package com.sanley.coronavirus.config;/*
-Created by shkstart on 2020/2/23.
-*/
+package com.sanley.coronavirus.config;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 @Configuration
 public class MyMvcConfig extends WebMvcConfigurationSupport {
 
