@@ -1,6 +1,4 @@
-package com.sanley.coronavirus.service.iml;/*
-Created by shkstart on 2020/2/23.
-*/
+package com.sanley.coronavirus.service.iml;
 
 import com.github.pagehelper.PageHelper;
 import com.sanley.coronavirus.dao.CureDao;

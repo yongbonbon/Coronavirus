@@ -1,6 +1,4 @@
-package com.sanley.coronavirus.controller;/*
-Created by shkstart on 2020/3/12.
-*/
+package com.sanley.coronavirus.controller;
 
 import com.sanley.coronavirus.entity.IndexInfo;
 import com.sanley.coronavirus.service.*;
@@ -10,8 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.sql.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 @Controller

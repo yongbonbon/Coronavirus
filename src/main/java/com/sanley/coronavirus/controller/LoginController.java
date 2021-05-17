@@ -1,6 +1,4 @@
-package com.sanley.coronavirus.controller;/*
-Created by shkstart on 2020/3/15.
-*/
+package com.sanley.coronavirus.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

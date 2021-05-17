@@ -1,6 +1,4 @@
-package com.sanley.coronavirus.service.iml;/*
-Created by shkstart on 2020/3/16.
-*/
+package com.sanley.coronavirus.service.iml;
 
 import com.sanley.coronavirus.dao.AuthenticationDao;
 import com.sanley.coronavirus.entity.Authentication;

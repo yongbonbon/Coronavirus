@@ -1,6 +1,4 @@
-package com.sanley.coronavirus.service.iml;/*
-Created by shkstart on 2020/2/24.
-*/
+package com.sanley.coronavirus.service.iml;
 
 import com.sanley.coronavirus.dao.ManageDao;
 import com.sanley.coronavirus.entity.Manage;

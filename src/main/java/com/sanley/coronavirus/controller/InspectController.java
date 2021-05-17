@@ -1,8 +1,5 @@
-package com.sanley.coronavirus.controller;/*
-Created by shkstart on 2020/2/24.
-*/
+package com.sanley.coronavirus.controller;
 
-import com.sanley.coronavirus.entity.Hospital;
 import com.sanley.coronavirus.entity.Inspect;
 import com.sanley.coronavirus.service.InspectService;
 import org.springframework.beans.factory.annotation.Autowired;

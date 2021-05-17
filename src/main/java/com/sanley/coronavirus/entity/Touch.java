@@ -1,5 +1,5 @@
 package com.sanley.coronavirus.entity;
-import com.sun.tools.javac.util.List;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;

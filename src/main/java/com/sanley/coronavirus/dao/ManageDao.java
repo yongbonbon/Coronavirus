@@ -1,6 +1,4 @@
-package com.sanley.coronavirus.dao;/*
-Created by shkstart on 2020/2/24.
-*/
+package com.sanley.coronavirus.dao;
 
 import com.sanley.coronavirus.entity.Manage;
 import org.apache.ibatis.annotations.*;

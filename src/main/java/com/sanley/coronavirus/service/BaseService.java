@@ -1,6 +1,4 @@
-package com.sanley.coronavirus.service;/*
-Created by shkstart on 2020/2/23.
-*/
+package com.sanley.coronavirus.service;
 
 import com.sanley.coronavirus.entity.Base;
 import org.apache.ibatis.annotations.Delete;

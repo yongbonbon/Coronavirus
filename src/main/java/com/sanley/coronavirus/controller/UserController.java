@@ -1,7 +1,4 @@
-package com.sanley.coronavirus.controller;/*
-Created by shkstart on 2020/3/16.
-*/
-
+package com.sanley.coronavirus.controller;
 
 import com.github.pagehelper.PageInfo;
 import com.sanley.coronavirus.entity.Cure;

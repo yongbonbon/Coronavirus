@@ -1,6 +1,5 @@
 package com.sanley.coronavirus.dao;
 
-
 import com.sanley.coronavirus.entity.Base;
 import com.sanley.coronavirus.entity.Touch;
 import org.apache.ibatis.annotations.*;

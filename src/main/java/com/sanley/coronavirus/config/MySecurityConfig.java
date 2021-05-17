@@ -1,6 +1,4 @@
-package com.sanley.coronavirus.config;/*
-Created by shkstart on 2020/3/15.
-*/
+package com.sanley.coronavirus.config;
 
 import com.sanley.coronavirus.service.MyUserDetailService;
 import org.springframework.beans.factory.annotation.Autowired;

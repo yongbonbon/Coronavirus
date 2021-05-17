@@ -1,19 +1,13 @@
-package com.sanley.coronavirus.controller;/*
-Created by shkstart on 2020/2/23.
-*/
+package com.sanley.coronavirus.controller;
 
 import com.github.pagehelper.PageInfo;
-import com.sanley.coronavirus.dao.CureDao;
-import com.sanley.coronavirus.dao.DeadDao;
 import com.sanley.coronavirus.entity.Cure;
-import com.sanley.coronavirus.entity.Dead;
 import com.sanley.coronavirus.entity.User;
 import com.sanley.coronavirus.service.CureService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
