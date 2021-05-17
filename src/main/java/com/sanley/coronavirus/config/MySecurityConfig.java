@@ -23,7 +23,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
         //定制请求的授权规则
         http.authorizeRequests().antMatchers("/index").permitAll()
                 .antMatchers("/dashboard/**,/checkOut/**").hasRole("User")
-                .antMatchers("/manager/**/","patient/**","/touch/**","/cure/**","/dead/**").hasRole("Admin");
+                .antMatchers("/manager/**/","/patient/**","/touch/**","/cure/**","/dead/**").hasRole("Admin");
 
         http.exceptionHandling().accessDeniedHandler(myAccessDenied);
 
